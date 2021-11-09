@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1700.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Italbytz.Infrastructure.OpenMensa", "Italbytz.Infrastructure.OpenMensa\Italbytz.Infrastructure.OpenMensa.csproj", "{BA6046B9-06BD-4186-955A-247A7B319F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Italbytz.Infrastructure.OpenMensa.Tests", "Italbytz.Infrastructure.OpenMensa.Tests\Italbytz.Infrastructure.OpenMensa.Tests.csproj", "{43D8A604-5A8D-4D61-A870-D822EB7F0C06}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA6046B9-06BD-4186-955A-247A7B319F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA6046B9-06BD-4186-955A-247A7B319F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA6046B9-06BD-4186-955A-247A7B319F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA6046B9-06BD-4186-955A-247A7B319F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43D8A604-5A8D-4D61-A870-D822EB7F0C06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43D8A604-5A8D-4D61-A870-D822EB7F0C06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43D8A604-5A8D-4D61-A870-D822EB7F0C06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43D8A604-5A8D-4D61-A870-D822EB7F0C06}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86E75415-004E-4971-AC17-2A0A764A76A3}
+	EndGlobalSection
+EndGlobal
