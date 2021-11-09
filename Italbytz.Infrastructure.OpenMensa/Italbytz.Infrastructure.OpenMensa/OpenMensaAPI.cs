@@ -10,6 +10,7 @@ namespace Italbytz.Infrastructure.OpenMensa
     public class OpenMensaAPI
     {
         private const string MediaTypeJSON = "application/json";
+        private static readonly string format = "yyyy-MM-dd";
 
         private static readonly HttpClient HttpClient;
 
@@ -17,17 +18,31 @@ namespace Italbytz.Infrastructure.OpenMensa
         {
             HttpClient = new HttpClient()
             {
-                BaseAddress = new Uri("https://openmensa.org/api/v2")
+                BaseAddress = new Uri("https://openmensa.org")
             };
             var media = new MediaTypeWithQualityHeaderValue(MediaTypeJSON);
             HttpClient.DefaultRequestHeaders.Accept.Add(media);
         }
 
-        public async Task<List<Canteen>> RetrieveCanteens()
+        public async Task<List<Canteen>> GetCanteens()
         {
-            return await HttpClient.GetFromJsonAsync<List<Canteen>>("/canteens");
+            return await HttpClient.GetFromJsonAsync<List<Canteen>>("/api/v2/canteens");
         }
 
+        public async Task<List<Day>> GetCanteenDays(long id)
+        {
+            return await HttpClient.GetFromJsonAsync<List<Day>>($"/api/v2/canteens/{id}/days");
+        }
+
+        public async Task<List<Meal>> GetMeals(long id, DateTime date)
+        {
+            return await HttpClient.GetFromJsonAsync<List<Meal>>($"/api/v2/canteens/{id}/days/{date.ToString(format)}/meals");
+        }
+
+        public async Task<List<Meal>> GetTodaysMeals(long id)
+        {
+            return await GetMeals(id, DateTime.Now);
+        }
     }
 }
 
