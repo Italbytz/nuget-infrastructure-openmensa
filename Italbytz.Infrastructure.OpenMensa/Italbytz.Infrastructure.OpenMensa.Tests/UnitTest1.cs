@@ -17,21 +17,25 @@ namespace Italbytz.Infrastructure.OpenMensa.Tests
         public async Task TestGetCanteens()
         {
             var canteens = await api.GetCanteens();
-            Assert.IsTrue(canteens.Count > 0);            
+            Assert.IsTrue(canteens.Count > 0);
         }
 
         [Test]
         public async Task TestGetCanteenDays()
         {
             var canteenDays = await api.GetCanteenDays(1);
-            Assert.IsTrue(canteenDays.Count > 0);
+            Assert.NotNull(canteenDays);
         }
 
         [Test]
         public async Task TestGetTodaysMeals()
         {
-            var meals = await api.GetTodaysMeals(1);
-            Assert.IsTrue(meals.Count > 0);
+            var canteenDays = await api.GetCanteenDays(1);
+            if (canteenDays.Count > 0)
+            {
+                var meals = await api.GetTodaysMeals(1);
+                Assert.NotNull(meals);
+            }
         }
     }
 }
