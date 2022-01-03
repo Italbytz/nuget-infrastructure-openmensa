@@ -28,13 +28,20 @@ namespace Italbytz.Infrastructure.OpenMensa.Tests
         }
 
         [Test]
-        public async Task TestGetTodaysMeals()
+        public async Task TestGetMeals()
         {
             var canteenDays = await api.GetCanteenDays(1);
             if (canteenDays.Count > 0)
             {
-                var meals = await api.GetTodaysMeals(1);
-                Assert.NotNull(meals);
+                foreach (var day in canteenDays)
+                {
+                    if (!day.Closed)
+                    {
+                        var meals = await api.GetMeals(1, day.Date.DateTime);
+                        Assert.NotNull(meals);
+                        break;
+                    }
+                }                                
             }
         }
     }
