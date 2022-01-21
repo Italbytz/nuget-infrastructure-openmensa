@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using NUnit.Framework;
 
 namespace Italbytz.Infrastructure.OpenMensa.Tests
@@ -30,19 +31,16 @@ namespace Italbytz.Infrastructure.OpenMensa.Tests
         [Test]
         public async Task TestGetMeals()
         {
-            var canteenDays = await api.GetCanteenDays(1);
-            if (canteenDays.Count > 0)
+            try
             {
-                foreach (var day in canteenDays)
-                {
-                    if (!day.Closed)
-                    {
-                        var meals = await api.GetMeals(1, day.Date.DateTime);
-                        Assert.NotNull(meals);
-                        break;
-                    }
-                }                                
+                var meals = await api.GetMeals(1, DateTime.Now);
+                Assert.NotNull(meals);
             }
+            catch (Exception ex)
+            {
+                Assert.True(ex is MensaClosedException || ex is NoMealsForDateException);
+            }
+
         }
     }
 }
