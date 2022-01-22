@@ -23,15 +23,15 @@ namespace Italbytz.Infrastructure.OpenMensa
     public partial class Prices
     {
         [JsonPropertyName("students")]
-        public double Students { get; set; }
+        public double? Students { get; set; }
 
         [JsonPropertyName("employees")]
-        public double Employees { get; set; }
+        public double? Employees { get; set; }
 
         [JsonPropertyName("pupils")]
-        public object Pupils { get; set; }
+        public double? Pupils { get; set; }
 
         [JsonPropertyName("others")]
-        public double Others { get; set; }
+        public double? Others { get; set; }
     }
 }
